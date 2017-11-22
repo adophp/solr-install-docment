@@ -1,9 +1,8 @@
 http://lucene.apache.org/solr/guide/7_1/solr-tutorial.html
-
+~~~
 #wget https://mirrors.cnnic.cn/apache/lucene/solr/7.1.0/solr-7.1.0.zip
 #unzip -q solr-7.1.0.zip
 #cd solr-7.1.0/
-~~~
 //启动solr
 # ./bin/solr start
 //启动所有
