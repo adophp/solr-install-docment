@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataConfig>
+    <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/xyg_ceshi?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true" user="root" password="123456" batchSize="-1" />
+    <document name="testDoc">
+        <entity name="user" pk="id" query="select * from ims_tiny_wmall_goods">
+              <field column="id" name="id"/>
+              <field column="cid" name="cid"/>
+              <field column="uniacid" name="uniacid"/>
+              <field column="sid" name="sid"/>
+              <field column="title" name="title"/>
+              <field column="number" name="number"/>
+              <field column="price" name="price"/>
+              <field column="sales" name="sales"/>
+              <field column="total" name="total"/>
+              <field column="unitname" name="unitname"/>
+        </entity>
+    </document>
+</dataConfig>
+
