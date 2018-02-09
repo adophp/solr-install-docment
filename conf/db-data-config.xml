@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataConfig>
-    <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/xyg_ceshi?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true" user="root" password="123456" batchSize="-1" />
-    <document name="testDoc">
-        <entity name="user" pk="id" query="select * from ims_tiny_wmall_goods">
+    <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://111.230.114.240:5328/xyg_ceshi?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true" user="root" password="xyg_ceshi" batchSize="-1" />
+    <document name="xyg">
+        <entity name="goods" pk="id" query="select * from ims_tiny_wmall_goods" deltaImportQuery="select * from ims_tiny_wmall_goods where id='${dih.delta.id}'" deltaQuery="select * from ims_tiny_wmall_goods where addtime >'${dataimporter.last_index_time}'">
               <field column="id" name="id"/>
               <field column="cid" name="cid"/>
               <field column="uniacid" name="uniacid"/>
@@ -13,6 +13,7 @@
               <field column="sales" name="sales"/>
               <field column="total" name="total"/>
               <field column="unitname" name="unitname"/>
+              <field column="addtime" name="addtime"/>
         </entity>
     </document>
 </dataConfig>

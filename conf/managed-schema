@@ -421,6 +421,13 @@
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
     </analyzer>
   </fieldType>
+  <fieldType name="text_ik" class="solr.TextField">
+       <!--索引时候的分词器-->
+       <analyzer type="index" isMaxWordLength="false" class="org.wltea.analyzer.lucene.IKAnalyzer"/>
+       <!--查询时候的分词器-->
+       <analyzer type="query" isMaxWordLength="true" class="org.wltea.analyzer.lucene.IKAnalyzer"/>
+  </fieldType>
+
   <field name="_root_" type="string" indexed="true" stored="false"/>
   <field name="_version_" type="plong" indexed="true" stored="true"/>
   <field name="author" type="text_general" indexed="true" stored="true"/>
@@ -449,7 +456,7 @@
   <field name="subject" type="text_general" indexed="true" stored="true"/>
   <field name="text" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="text_rev" type="text_general_rev" multiValued="true" indexed="true" stored="false"/>
-  <field name="title" type="text_general" multiValued="true" indexed="true" stored="true"/>
+  <field name="title" type="text_ik" multiValued="true" indexed="true" stored="true"/>
   <field name="url" type="text_general" indexed="true" stored="true"/>
 
   
@@ -460,6 +467,7 @@
   <field name="total" type="string" indexed="true" stored="true"/>
   <field name="unitname" type="string" indexed="true" stored="true"/>
   <field name="number" type="string" indexed="true" stored="true"/>
+  <field name="addtime" type="text_general" indexed="true" stored="true"/>
 
   <field name="weight" type="pfloat" indexed="true" stored="true"/>
   <dynamicField name="*_coordinate" type="pdouble" indexed="true" stored="false"/>
